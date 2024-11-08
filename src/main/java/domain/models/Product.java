@@ -37,4 +37,11 @@ public class Product {
         return promotion != null;
     }
 
+
+    public int calculateToPromotionPrice(int quantity){
+        if(hasPromotion() && promotion.isApplicable(quantity)){
+            return promotion.calculateToPromotionPrice(price, quantity);
+        }
+        return price * quantity;
+    }
 }
